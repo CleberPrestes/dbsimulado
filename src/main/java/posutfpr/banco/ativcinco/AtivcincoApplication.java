@@ -12,9 +12,11 @@ import org.springframework.context.annotation.Bean;
 
 import posutfpr.banco.ativcinco.entity.Categoria;
 import posutfpr.banco.ativcinco.entity.Gravacao;
+import posutfpr.banco.ativcinco.entity.Gravadora;
 import posutfpr.banco.ativcinco.entity.Musica;
 import posutfpr.banco.ativcinco.service.CategoriaService;
 import posutfpr.banco.ativcinco.service.GravacaoService;
+import posutfpr.banco.ativcinco.service.GravadoraService;
 import posutfpr.banco.ativcinco.service.MusicaService;
 
 
@@ -72,7 +74,7 @@ public class AtivcincoApplication {
 	
 	@Bean
 	public CommandLineRunner demoFunc(MusicaService musicaService, CategoriaService categoriaService, 
-			GravacaoService gravacaoService) {
+			GravacaoService gravacaoService, GravadoraService gravadoraService) {
 		return (args) -> {
 			
 			
@@ -80,12 +82,12 @@ public class AtivcincoApplication {
 			//Cria categoria
 			Date date = new Date(1067l);
 			Categoria categoria = new Categoria("Rock");
-			//Gravadora  gravadora1 = new Gravadora("Saturno", "Brasil");
+			Gravadora  gravadora = new Gravadora("Jupiter", "EUA");
 			//Gravadora  gravadora2 = new Gravadora("Jupiter", "EUA");
 			
-			Gravacao gravacao = new Gravacao(date);
+			Gravacao gravacao = new Gravacao(date, gravadora);
 			//Gravacao gravacao2 = new Gravacao(date, gravadora2);
-			
+			gravadoraService.saveGravadora(gravadora);
 			//List<Gravacao> gravacoes = Arrays.asList(gravacao1, gravacao2);
 			
 			//Cria musica com a categoria
@@ -97,15 +99,20 @@ public class AtivcincoApplication {
 			
 			
 			List<Musica> musicas = Arrays.asList(musica1, musica2);
+			//gravacao.setMusica(musica1);
+			
+			List<Gravacao> gravacoes = Arrays.asList(gravacao);
 			
 			
 			//Coloca lista na categoria
 			
 			categoria.setMusicas(musicas);
-			//gravadora1.setGravacao(gravacoes);
+			gravadora.setGravacao(gravacoes);
+			
 			
 			//Salva categoria usando service
 			categoriaService.saveCategoria(categoria);
+			
 			//gravacaoService.saveGravacao(gravacao);
 			
 

@@ -16,11 +16,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Table(name = "Musica")
 public class Musica extends AbstractPersistable<Long>{
 	
-
-
-	
-	
-	
 	
 
 	public Musica(Long duracao, String titulo, Categoria categoria, Gravacao gravacao) {

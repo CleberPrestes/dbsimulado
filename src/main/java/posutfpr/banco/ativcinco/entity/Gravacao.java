@@ -24,12 +24,11 @@ public class Gravacao extends AbstractPersistable<Long>{
 	private Date dataGravacao;
 	
 	
-	 /*
-	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_id")
+    @JoinColumn(name = "gravadora_id")
 	private Gravadora  gravadora;
 
+	/*
 	private List<Cantor>  cantor = new ArrayList<>();
 	*/
 	
@@ -37,15 +36,24 @@ public class Gravacao extends AbstractPersistable<Long>{
 	private Musica  musica;
 	
 				
+	
+	
+	
+	
 
-	public Gravacao(Date dataGravacao) {
+	public Gravacao(Date dataGravacao, Gravadora gravadora, Musica musica) {
 		super();
 		this.dataGravacao = dataGravacao;
-	
-		
+		this.gravadora = gravadora;
+		this.musica = musica;
 	}
 
-	
+	public Gravacao(Date dataGravacao, Gravadora gravadora) {
+		super();
+		this.dataGravacao = dataGravacao;
+		this.gravadora = gravadora;
+		
+	}
 
 	public Date getDataGravacao() {
 		return dataGravacao;
