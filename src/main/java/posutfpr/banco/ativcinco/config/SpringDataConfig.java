@@ -20,7 +20,7 @@ import com.jolbox.bonecp.BoneCPDataSource;
 //UTFPR — Universidade Tecnológica Federal do Paraná UTFPR
 //XXI Curso de Especialização em Tecnologia Java (2021_01)
 //Banco de Dados
-//Atividade 6
+//Simulado
 //Cleber dos Santos Prestes de Oliveira
 
 

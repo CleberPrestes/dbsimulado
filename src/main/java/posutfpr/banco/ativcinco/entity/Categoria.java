@@ -7,7 +7,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,15 +15,18 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 @Table(name = "Categoria")
 public class Categoria extends AbstractPersistable<Long> {
-	
-	
-		
-	
+
 
 	public Categoria(String descCategoria) {
 		super();
 		this.descCategoria = descCategoria;
-		}
+	}
+
+
+	public Categoria() {
+		
+	}
+
 
 
 	@Column(name = "descCategori", length = 64, nullable = false)

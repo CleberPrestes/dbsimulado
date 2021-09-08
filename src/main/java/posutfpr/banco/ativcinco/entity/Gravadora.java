@@ -40,6 +40,16 @@ public class Gravadora extends AbstractPersistable<Long>{
 	}
 
 
+	
+	
+
+	public Gravadora() {
+		super();
+	}
+
+
+
+
 
 	public String getNomeGravadora() {
 		return nomeGravadora;

@@ -1,12 +1,15 @@
 package posutfpr.banco.ativcinco.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -18,13 +21,30 @@ public class Musica extends AbstractPersistable<Long>{
 	
 	
 
-	public Musica(Long duracao, String titulo, Categoria categoria, Gravacao gravacao) {
+	public Musica(Long duracao, String titulo, Categoria categoria) {
 		super();
 		this.duracao = duracao;
 		this.titulo = titulo;
 		this.categoria = categoria;
-		this.gravacao = gravacao;
+	
 	}
+	
+	
+	public Musica(Long duracao, String titulo) {
+		super();
+		this.duracao = duracao;
+		this.titulo = titulo;
+		
+	
+	}
+	
+	
+
+	public Musica() {
+		super();
+	}
+
+
 
 	@Column(name = "duracao", length = 64, nullable = false)
 	private Long duracao;
@@ -36,18 +56,23 @@ public class Musica extends AbstractPersistable<Long>{
     @JoinColumn(name = "categoria_id")
 	private Categoria categoria;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "gravacao", referencedColumnName = "id")
-	private Gravacao gravacao;
+	
+	@OneToMany(mappedBy = "musica",
+	orphanRemoval = true,
+	fetch = FetchType.LAZY,
+	cascade = CascadeType.ALL)
+	private List<Gravacao> gravacoes = new ArrayList<>();
+	
+	
+	
 
-	
-	
-	public Gravacao getGravacao() {
-		return gravacao;
+
+	public List<Gravacao> getGravacoes() {
+		return gravacoes;
 	}
 
-	public void setGravacao(Gravacao gravacao) {
-		this.gravacao = gravacao;
+	public void setGravacoes(List<Gravacao> gravacoes) {
+		this.gravacoes = gravacoes;
 	}
 
 	public Long getDuracao() {
@@ -73,11 +98,5 @@ public class Musica extends AbstractPersistable<Long>{
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
-	//@OneToOne	
-	//private Gravacao gravacao;
-	
-		
-	
 
 }
