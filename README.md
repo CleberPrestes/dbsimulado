@@ -1,3 +1,3 @@
-# bdExercice5
+# bd_simulado
 
-Atividade 5 - Disciplina - Banco de Dados - Pos Java
+Atividade Simulado - Disciplina - Banco de Dados - Pos Java
