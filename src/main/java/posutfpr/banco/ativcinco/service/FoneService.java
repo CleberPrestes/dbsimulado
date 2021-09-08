@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import posutfpr.banco.ativcinco.entity.Cantor;
+import posutfpr.banco.ativcinco.entity.Fone;
 import posutfpr.banco.ativcinco.entity.Musica;
+import posutfpr.banco.ativcinco.repository.FoneRepository;
 import posutfpr.banco.ativcinco.repository.MusicaRepository;
 
 //UTFPR — Universidade Tecnológica Federal do Paraná UTFPR
@@ -18,28 +20,28 @@ import posutfpr.banco.ativcinco.repository.MusicaRepository;
 
 
 @Service
-public class MusicaService {
+public class FoneService {
 
 	@Autowired
-	private MusicaRepository musicaRepository;
+	private FoneRepository foneRepository;
 
-	public Musica saveMusica(Musica musica) {
-		return musicaRepository.save(musica);
+	public Fone saveFone(Fone fone) {
+		return foneRepository.save(fone);
 	}
 	
-	public void deleteMusicaId(Long idUsuario) {
-		System.out.println("Deletando musica com id " + idUsuario);
-		musicaRepository.deleteById(idUsuario);
+	public void deleteFoneId(Long idFone) {
+		System.out.println("Deletando musica com id " + idFone);
+		foneRepository.deleteById(idFone);
 	}	
 	
-	public List<Musica> findAllMusica() {
-		return musicaRepository.findAll();
+	public List<Fone> findAllFone() {
+		return foneRepository.findAll();
 	}
 	
 	
-	public Musica findMusicaByName(String name) {
+	public Fone findFoneByNumero(String name) {
 
-		return musicaRepository.findByTitulo(name);
+		return foneRepository.findByNumero(name);
 	}
 	
 

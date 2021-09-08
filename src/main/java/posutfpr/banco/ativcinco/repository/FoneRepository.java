@@ -4,6 +4,7 @@ package posutfpr.banco.ativcinco.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import posutfpr.banco.ativcinco.entity.Cantor;
+import posutfpr.banco.ativcinco.entity.Fone;
 import posutfpr.banco.ativcinco.entity.Musica;
 
 
@@ -14,8 +15,8 @@ import posutfpr.banco.ativcinco.entity.Musica;
 //Cleber dos Santos Prestes de Oliveira
 
 
-public interface MusicaRepository extends JpaRepository<Musica, Long> {
+public interface FoneRepository extends JpaRepository<Fone, Long> {
 	
-	Musica findByTitulo(String name);
+	Fone findByNumero(String name);
 	
 }

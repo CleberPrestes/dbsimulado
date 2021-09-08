@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import posutfpr.banco.ativcinco.entity.Cantor;
 import posutfpr.banco.ativcinco.entity.Categoria;
+import posutfpr.banco.ativcinco.entity.Pessoa;
 import posutfpr.banco.ativcinco.repository.CategoriaRepository;
+import posutfpr.banco.ativcinco.repository.PessoaRepository;
 
 //UTFPR — Universidade Tecnológica Federal do Paraná UTFPR
 //XXI Curso de Especialização em Tecnologia Java (2021_01)
@@ -18,31 +20,31 @@ import posutfpr.banco.ativcinco.repository.CategoriaRepository;
 
 
 @Service
-public class CategoriaService {
+public class PessoaService {
 	
 
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	private PessoaRepository pessoaRepository;
 		
-		public Categoria saveCategoria(Categoria categoria) {
-			return categoriaRepository.save(categoria);
+		public Pessoa savePessoa(Pessoa pessoa) {
+			return pessoaRepository.save(pessoa);
 		}
 		
 		
-		public void deleteCategoriaId(Long idUsuario) {
+		public void deletePessoaId(Long idUsuario) {
 				System.out.println("Deletando categoria com id " + idUsuario);
-				categoriaRepository.deleteById(idUsuario);
+				pessoaRepository.deleteById(idUsuario);
 			}
 		
 		
-		public List<Categoria> findAllCategoria() {
-			return categoriaRepository.findAll();
+		public List<Pessoa> findAllPessoa() {
+			return pessoaRepository.findAll();
 		}
 		
 				
-		public Categoria findCategoriaByName(String name) {
+		public Pessoa findPessoaByName(String name) {
 
-			return categoriaRepository.findByDescCategoria(name);
+			return pessoaRepository.findByNomePessoa(name);
 		}
 
 }

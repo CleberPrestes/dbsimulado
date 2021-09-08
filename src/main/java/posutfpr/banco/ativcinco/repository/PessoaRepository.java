@@ -4,7 +4,8 @@ package posutfpr.banco.ativcinco.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import posutfpr.banco.ativcinco.entity.Cantor;
-import posutfpr.banco.ativcinco.entity.Musica;
+import posutfpr.banco.ativcinco.entity.Categoria;
+import posutfpr.banco.ativcinco.entity.Pessoa;
 
 
 //UTFPR — Universidade Tecnológica Federal do Paraná UTFPR
@@ -14,8 +15,8 @@ import posutfpr.banco.ativcinco.entity.Musica;
 //Cleber dos Santos Prestes de Oliveira
 
 
-public interface MusicaRepository extends JpaRepository<Musica, Long> {
+public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 	
-	Musica findByTitulo(String name);
-	
+	Pessoa findByNomePessoa(String name);
+		
 }

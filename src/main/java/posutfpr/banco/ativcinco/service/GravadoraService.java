@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import posutfpr.banco.ativcinco.entity.Cantor;
+import posutfpr.banco.ativcinco.entity.Gravacao;
 import posutfpr.banco.ativcinco.entity.Gravadora;
 import posutfpr.banco.ativcinco.repository.GravadoraRepository;
 
